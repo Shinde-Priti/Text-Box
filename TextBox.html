@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<style>
+		.textbox {
+          position: fixed;
+          top: 0px;
+          left: 0px;
+          height: 100vh;
+          width: 100%;
+          background-image: linear-gradient(to right,#ddf0ef,#b7e8e6,#90f0ec,#60f7f1,#2ef0e8,#06cfc6,#048a84);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+		}
+		.textbox div {
+			height: 300px;
+			width: 300px;
+			background-color: white;
+			padding: 30px;
+			border-radius: 10px;
+		}
+	</style>
+
+</head>
+<body>
+     <div class="textbox">
+     	<div align="center">
+     		<form action="">
+     			<label for="">Enter a Text</label>
+     			<textarea name="text" id="userText" cols="40" rows="10" onchange="fetchData()"></textarea>
+     			<button type="button" onclick="upperCase()">UPPERCASE</button>
+     			<button type="button" onclick="lowerCase()">LOWERCASE</button>
+     			<button onclick="search()">SEARCH</button>
+     		</form>
+     		<h3>
+     			text contains <span id="words"></span>words and
+     			<span id="charachter"></span> characters
+     		</h3>
+     	</div>
+     </div>
+      <script>
+     	let userText = document.getElementById("userText");
+     	let word = document.getElementById('words');
+     	word.innerHTML='0'
+     	let character = document.getElementById('character');
+     	character.innerHTML='0'
+
+     	function fetchData() {
+     		let arr = userText.value.split('').length;
+     		word.innerHTML=arr;
+     		let strlngth = userText.value.length;
+     		character.innerHTML=strlngth
+     	}
+     	function upperCase() {
+     		userText.value = userText.value.toUpperCase();
+     	}
+     		function lowerCase() {
+     		userText.value = userText.value.toLowerCase();
+     	}
+     </script>
+</body>
+</html>
